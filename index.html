@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Alliance Builder</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-handshake me-2"></i>Strategic Alliance Builder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profiles"><i class="fas fa-user-circle me-1"></i> Profiles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#match"><i class="fas fa-puzzle-piece me-1"></i> Match</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#calculator"><i class="fas fa-calculator me-1"></i> ROI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collaborate"><i class="fas fa-users me-1"></i> Collaborate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#case-studies"><i class="fas fa-book me-1"></i> Case Studies</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">Strategic Partnerships Reimagined</h1>
+                    <p class="lead my-4">Move beyond transactional sponsorships to create meaningful strategic alliances that drive mutual value.</p>
+                    <div class="d-grid gap-2 d-md-flex">
+                        <button class="btn btn-primary btn-lg px-4" onclick="showSection('profiles')">Create Profile</button>
+                        <button class="btn btn-outline-primary btn-lg px-4" onclick="showSection('match')">Find Partners</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="https://via.placeholder.com/600x400?text=Strategic+Alliances" alt="Strategic Alliances" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Overview -->
+    <section class="features py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Build Stronger Strategic Partnerships</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon bg-primary bg-gradient text-white mb-3">
+                                <i class="fas fa-search fa-2x"></i>
+                            </div>
+                            <h3 class="card-title">Find the Right Partners</h3>
+                            <p class="card-text">Our intelligent matching algorithm identifies partners with strategic alignment to your goals and values.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon bg-primary bg-gradient text-white mb-3">
+                                <i class="fas fa-chart-line fa-2x"></i>
+                            </div>
+                            <h3 class="card-title">Measure True Value</h3>
+                            <p class="card-text">Go beyond impressions with comprehensive ROI calculators that capture the full value of your partnerships.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon bg-primary bg-gradient text-white mb-3">
+                                <i class="fas fa-tasks fa-2x"></i>
+                            </div>
+                            <h3 class="card-title">Collaborate Effectively</h3>
+                            <p class="card-text">Manage joint initiatives with shared KPI dashboards, timelines, and resource allocation tools.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profiles Section -->
+    <section id="profiles" class="py-5 bg-light d-none">
+        <div class="container">
+            <h2 class="text-center mb-5">Create Your Profile</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="brand-tab" data-bs-toggle="tab" data-bs-target="#brand" type="button" role="tab">Brand</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="organization-tab" data-bs-toggle="tab" data-bs-target="#organization" type="button" role="tab">Organization</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content p-3" id="profileTabsContent">
+                                <div class="tab-pane fade show active" id="brand" role="tabpanel">
+                                    <form id="brandProfileForm">
+                                        <div class="mb-3">
+                                            <label for="brandName" class="form-label">Brand Name</label>
+                                            <input type="text" class="form-control" id="brandName" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="brandIndustry" class="form-label">Industry</label>
+                                            <select class="form-select" id="brandIndustry" required>
+                                                <option value="" selected disabled>Select Industry</option>
+                                                <option value="technology">Technology</option>
+                                                <option value="retail">Retail</option>
+                                                <option value="finance">Finance</option>
+                                                <option value="healthcare">Healthcare</option>
+                                                <option value="entertainment">Entertainment</option>
+                                                <option value="sports">Sports</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="brandDescription" class="form-label">Brand Description</label>
+                                            <textarea class="form-control" id="brandDescription" rows="3" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="brandValues" class="form-label">Brand Values</label>
+                                            <input type="text" class="form-control" id="brandValues" placeholder="Enter values separated by commas">
+                                        </div>
+                                        <h5 class="mt-4">Target Audience</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="audienceAge" class="form-label">Age Range</label>
+                                                    <select class="form-select" id="audienceAge">
+                                                        <option value="18-24">18-24</option>
+                                                        <option value="25-34">25-34</option>
+                                                        <option value="35-44">35-44</option>
+                                                        <option value="45-54">45-54</option>
+                                                        <option value="55+">55+</option>
+                                                        <option value="all">All Ages</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="audienceRegion" class="form-label">Primary Region</label>
+                                                    <select class="form-select" id="audienceRegion">
+                                                        <option value="north_america">North America</option>
+                                                        <option value="europe">Europe</option>
+                                                        <option value="asia_pacific">Asia-Pacific</option>
+                                                        <option value="latin_america">Latin America</option>
+                                                        <option value="africa">Africa</option>
+                                                        <option value="global">Global</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5 class="mt-4">Partnership Criteria</h5>
+                                        <div class="mb-3">
+                                            <label for="partnershipGoals" class="form-label">Goals</label>
+                                            <select class="form-select" id="partnershipGoals" multiple>
+                                                <option value="brand_awareness">Increase Brand Awareness</option>
+                                                <option value="audience_reach">Expand Audience Reach</option>
+                                                <option value="product_innovation">Product Innovation</option>
+                                                <option value="revenue_growth">Revenue Growth</option>
+                                                <option value="social_impact">Social Impact</option>
+                                            </select>
+                                            <small class="form-text text-muted">Hold Ctrl/Cmd to select multiple</small>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary">Save Brand Profile</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="organization" role="tabpanel">
+                                    <form id="orgProfileForm">
+                                        <div class="mb-3">
+                                            <label for="orgName" class="form-label">Organization Name</label>
+                                            <input type="text" class="form-control" id="orgName" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="orgType" class="form-label">Organization Type</label>
+                                            <select class="form-select" id="orgType" required>
+                                                <option value="" selected disabled>Select Type</option>
+                                                <option value="sports_team">Sports Team</option>
+                                                <option value="event">Event</option>
+                                                <option value="nonprofit">Nonprofit</option>
+                                                <option value="media">Media</option>
+                                                <option value="education">Education</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="orgDescription" class="form-label">Organization Description</label>
+                                            <textarea class="form-control" id="orgDescription" rows="3" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="orgValues" class="form-label">Core Values</label>
+                                            <input type="text" class="form-control" id="orgValues" placeholder="Enter values separated by commas">
+                                        </div>
+                                        <h5 class="mt-4">Audience Information</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="orgAudienceSize" class="form-label">Audience Size</label>
+                                                    <select class="form-select" id="orgAudienceSize">
+                                                        <option value="<10k">Less than 10,000</option>
+                                                        <option value="10k-50k">10,000 - 50,000</option>
+                                                        <option value="50k-100k">50,000 - 100,000</option>
+                                                        <option value="100k-500k">100,000 - 500,000</option>
+                                                        <option value="500k-1m">500,000 - 1 million</option>
+                                                        <option value=">1m">Over 1 million</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="orgRegion" class="form-label">Primary Region</label>
+                                                    <select class="form-select" id="orgRegion">
+                                                        <option value="north_america">North America</option>
+                                                        <option value="europe">Europe</option>
+                                                        <option value="asia_pacific">Asia-Pacific</option>
+                                                        <option value="latin_america">Latin America</option>
+                                                        <option value="africa">Africa</option>
+                                                        <option value="global">Global</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5 class="mt-4">Partnership Opportunities</h5>
+                                        <div class="mb-3">
+                                            <label for="partnershipTypes" class="form-label">Available Partnership Types</label>
+                                            <select class="form-select" id="partnershipTypes" multiple>
+                                                <option value="naming_rights">Naming Rights</option>
+                                                <option value="content_creation">Content Creation</option>
+                                                <option value="product_integration">Product Integration</option>
+                                                <option value="cause_marketing">Cause Marketing</option>
+                                                <option value="experiential">Experiential</option>
+                                            </select>
+                                            <small class="form-text text-muted">Hold Ctrl/Cmd to select multiple</small>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary">Save Organization Profile</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Match Section -->
+    <section id="match" class="py-5 d-none">
+        <div class="container">
+            <h2 class="text-center mb-5">Find Strategic Partners</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">Matching Criteria</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="matchForm">
+                                <div class="mb-3">
+                                    <label for="matchProfile" class="form-label">Your Profile</label>
+                                    <select class="form-select" id="matchProfile" required>
+                                        <option value="" selected disabled>Select Your Profile</option>
+                                        <option value="brand1">Brand Profile 1</option>
+                                        <option value="org1">Organization Profile 1</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="matchIndustry" class="form-label">Industry Preference</label>
+                                    <select class="form-select" id="matchIndustry" multiple>
+                                        <option value="all" selected>All Industries</option>
+                                        <option value="technology">Technology</option>
+                                        <option value="retail">Retail</option>
+                                        <option value="finance">Finance</option>
+                                        <option value="healthcare">Healthcare</option>
+                                        <option value="entertainment">Entertainment</option>
+                                        <option value="sports">Sports</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="alignmentPriority" class="form-label">Alignment Priority</label>
+                                    <select class="form-select" id="alignmentPriority">
+                                        <option value="values" selected>Values Alignment</option>
+                                        <option value="audience">Audience Complementarity</option>
+                                        <option value="goals">Goals Compatibility</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="minAlignmentScore" class="form-label">Minimum Alignment Score</label>
+                                    <input type="range" class="form-range" id="minAlignmentScore" min="0" max="100" step="5" value="70">
+                                    <div class="d-flex justify-content-between">
+                                        <span>0</span>
+                                        <span id="alignmentScoreValue">70</span>
+                                        <span>100</span>
+                                    </div>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">Find Matches</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">Potential Partnerships</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="matchResults">
+                                <div class="alert alert-info mb-0">
+                                    <i class="fas fa-info-circle me-2"></i>Use the matching criteria on the left to find potential strategic partners.
+                                </div>
+                                
+                                <!-- This will be populated by JavaScript when matches are found -->
+                                <div id="matchesContainer" class="d-none">
+                                    <!-- Example match card that will be cloned and populated -->
+                                    <div class="match-card border rounded p-3 mb-3">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h5 class="match-name">Partner Name</h5>
+                                                <p class="match-description mb-2">Partner description goes here.</p>
+                                                <div class="match-tags">
+                                                    <span class="badge bg-light text-dark me-2">Tag 1</span>
+                                                    <span class="badge bg-light text-dark me-2">Tag 2</span>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="match-score-circle">
+                                                    <span class="match-score">85</span>
+                                                </div>
+                                                <small class="d-block mt-1">Alignment Score</small>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-6">
+                                                <h6 class="fw-bold">Top Alignment Areas</h6>
+                                                <ul class="match-alignment-list">
+                                                    <li>Value Alignment (90%)</li>
+                                                    <li>Audience Overlap (85%)</li>
+                                                    <li>Goal Compatibility (80%)</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h6 class="fw-bold">Partnership Potential</h6>
+                                                <p class="match-potential">This partnership has strong potential for co-branded content creation and shared audience engagement.</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-2">
+                                            <button class="btn btn-sm btn-outline-primary me-2">View Profile</button>
+                                            <button class="btn btn-sm btn-primary">Analyze Potential</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section id="calculator" class="py-5 bg-light d-none">
+        <div class="container">
+            <h2 class="text-center mb-5">Partnership ROI Calculator</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">Partnership Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="roiForm">
+                                <div class="mb-3">
+                                    <label for="partnershipName" class="form-label">Partnership Name</label>
+                                    <input type="text" class="form-control" id="partnershipName" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="partnershipInvestment" class="form-label">Investment ($)</label>
+                                            <input type="number" class="form-control" id="partnershipInvestment" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="partnershipDuration" class="form-label">Duration (months)</label>
+                                            <input type="number" class="form-control" id="partnershipDuration" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h5 class="mt-4">Direct Value Metrics</h5>
+                                <div class="mb-3">
+                                    <label for="brandExposure" class="form-label">Brand Exposure Value ($)</label>
+                                    <input type="number" class="form-control" id="brandExposure">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="leadGeneration" class="form-label">Lead Generation</label>
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" id="leadCount" placeholder="# of Leads">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" id="leadValue" placeholder="Value per Lead ($)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="salesConversion" class="form-label">Sales Conversion</label>
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" id="conversionCount" placeholder="# of Conversions">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" id="conversionValue" placeholder="Value per Sale ($)">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h5 class="mt-4">Indirect Value Metrics</h5>
+                                <div class="mb-3">
+                                    <label for="brandPerception" class="form-label">Brand Perception Lift</label>
+                                    <select class="form-select" id="brandPerception">
+                                        <option value="none">None</option>
+                                        <option value="low">Low (10% of investment)</option>
+                                        <option value="medium" selected>Medium (25% of investment)</option>
+                                        <option value="high">High (50% of investment)</option>
+                                        <option value="very_high">Very High (75% of investment)</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="audienceEngagement" class="form-label">Audience Engagement Value</label>
+                                    <select class="form-select" id="audienceEngagement">
+                                        <option value="none">None</option>
+                                        <option value="low">Low (10% of investment)</option>
+                                        <option value="medium" selected>Medium (25% of investment)</option>
+                                        <option value="high">High (50% of investment)</option>
+                                        <option value="very_high">Very High (75% of investment)</option>
+                                    </select>
+                                </div>
+                                
+                                <h5 class="mt-4">Long-term Value Metrics</h5>
+                                <div class="mb-3">
+                                    <label for="relationshipValue" class="form-label">Relationship Development Value</label>
+                                    <select class="form-select" id="relationshipValue">
+                                        <option value="none">None</option>
+                                        <option value="low">Low (5% of investment annually)</option>
+                                        <option value="medium" selected>Medium (15% of investment annually)</option>
+                                        <option value="high">High (30% of investment annually)</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="innovationPotential" class="form-label">Innovation Potential</label>
+                                    <select class="form-select" id="innovationPotential">
+                                        <option value="none">None</option>
+                                        <option value="low">Low (5% of investment)</option>
+                                        <option value="medium">Medium (15% of investment)</option>
+                                        <option value="high" selected>High (30% of investment)</option>
+                                        <option value="very_high">Very High (50% of investment)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="d-grid mt-4">
+                                    <button type="submit" class="btn btn-primary">Calculate ROI</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">ROI Analysis</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="roiResults" class="d-none">
+                                <div class="mb-4 text-center">
+                                    <h4 id="partnershipNameDisplay">Partnership Name</h4>
+                                    <div class="roi-summary">
+                                        <div class="roi-circle mx-auto">
+                                            <span id="roiPercentage">247%</span>
+                                        </div>
+                                        <p class="mt-2 mb-0">Estimated ROI</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-sm-6 text-center mb-3">
+                                        <h5>Investment</h5>
+                                        <p class="display-6 mb-0" id="totalInvestment">$50,000</p>
+                                    </div>
+                                    <div class="col-sm-6 text-center mb-3">
+                                        <h5>Total Value</h5>
+                                        <p class="display-6 mb-0" id="totalValue">$123,500</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5>Value Breakdown</h5>
+                                    <canvas id="valueBreakdownChart" height="200"></canvas>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5>Value Timeline</h5>
+                                    <canvas id="valueTimelineChart" height="200"></canvas>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5>Recommendations</h5>
+                                    <div class="card bg-light">
+                                        <div class="card-body" id="roiRecommendations">
+                                            <p><strong>This partnership shows strong potential with a positive ROI.</strong></p>
+                                            <ul>
+                                                <li>Consider increasing investment in co-branded content creation to maximize audience engagement value.</li>
+                                                <li>Implement more robust lead tracking to better quantify direct conversion value.</li>
+                                                <li>Explore product integration opportunities to enhance innovation potential.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-end">
+                                    <button class="btn btn-outline-primary me-2">Save Analysis</button>
+                                    <button class="btn btn-primary">Export Report</button>
+                                </div>
+                            </div>
+                            
+                            <div id="roiPlaceholder">
+                                <div class="alert alert-info mb-4">
+                                    <i class="fas fa-info-circle me-2"></i>Fill out the partnership details on the left to generate an ROI analysis.
+                                </div>
+                                <div class="text-center py-5">
+                                    <i class="fas fa-chart-pie fa-5x text-muted mb-3"></i>
+                                    <h5 class="text-muted">Your ROI analysis will appear here</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborate Section Placeholder -->
+    <section id="collaborate" class="py-5 d-none">
+        <div class="container">
+            <h2 class="text-center mb-5">Collaboration Project Management</h2>
+            <div class="alert alert-info">
+                <i class="fas fa-tools me-2"></i>This section is under development. Check back soon for collaboration tools!
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section Placeholder -->
+    <section id="case-studies" class="py-5 bg-light d-none">
+        <div class="container">
+            <h2 class="text-center mb-5">Partnership Success Stories</h2>
+            <div class="alert alert-info">
+                <i class="fas fa-tools me-2"></i>This section is under development. Check back soon for partnership case studies and frameworks!
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-handshake me-2"></i>Strategic Alliance Builder</h5>
+                    <p class="mb-0">A platform for building meaningful strategic partnerships based on true alignment.</p>
+                </div>
+                <div class="col-md-3">
+                    <h6>Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Documentation</a></li>
+                        <li><a href="#" class="text-light">Tutorials</a></li>
+                        <li><a href="#" class="text-light">API</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6>Connect</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Contact Us</a></li>
+                        <li><a href="#" class="text-light">GitHub</a></li>
+                        <li><a href="#" class="text-light">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-3 mb-3">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Strategic Alliance Builder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+    <script src="js/profiles.js"></script>
+    <script src="js/matcher.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
