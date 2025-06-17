@@ -1,0 +1,136 @@
+/* Strategic Alliance Builder - Custom Styles */
+
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+.text-primary {
+    color: #0d6efd !important;
+}
+
+.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+/* Section Spacing */
+section {
+    padding: 60px 0;
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(247, 250, 255, 0.9), rgba(247, 250, 255, 0.9)), url('https://via.placeholder.com/1920x1080?text=Strategic+Partnerships');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Feature Icons */
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+/* Profile Forms */
+.form-label {
+    font-weight: 500;
+}
+
+/* Match Results */
+.match-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.match-score-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.match-alignment-list {
+    padding-left: 1.25rem;
+}
+
+/* ROI Calculator */
+.roi-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#roiPercentage::after {
+    content: '%';
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .hero {
+        text-align: center;
+    }
+    
+    .match-score-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .roi-circle {
+        width: 100px;
+        height: 100px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Animation for Tab Transitions */
+.tab-pane.fade {
+    transition: opacity 0.15s linear;
+}
+
+/* Custom Form Styles */
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Chart Container Styles */
+canvas {
+    max-width: 100%;
+}
+
+/* Footer Links */
+footer a {
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
